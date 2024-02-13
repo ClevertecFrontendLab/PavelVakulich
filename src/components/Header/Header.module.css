@@ -13,11 +13,11 @@
     line-height: 130%;
     color: var(--character-light-title-85);
     letter-spacing: 1px;
-    margin: 0px 24px 26px;
+    margin: 0 24px 26px;
 }
 
 .header_link {
-    margin: 16px 24px;
+    margin: 25px 24px 10px 24px;
 }
 
 .settings {
@@ -25,7 +25,7 @@
     width: 120px;
     position: absolute;
     letter-spacing: 1px;
-    margin: 16px 24px;
+    margin: 40px 5px;
     font-size: 14px;
     justify-content: flex-end;
     gap: 10px;

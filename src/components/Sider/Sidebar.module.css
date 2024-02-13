@@ -17,6 +17,7 @@
 }
 
 .img_open {
+    padding-top: 15px;
     margin-left: 27px;
 }
 
@@ -50,7 +51,7 @@
     right: -21px;
     position: absolute;
     cursor: pointer;
-    top: 482px;
+    top: 500px;
     width: 25px;
     height: 60px;
     margin: auto;
@@ -62,8 +63,8 @@
     border-top: rgba(0, 0, 0, 0.15) 2px solid;
     display: flex;
     align-items: center;
-    gap: 36px;
-    padding: 22px 16px;
+    gap: 14px;
+    padding: 10px 16px;
 }
 
 @media (width < 900px) {

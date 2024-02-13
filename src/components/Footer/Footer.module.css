@@ -21,7 +21,7 @@
 
 .people_reviews {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 130%;
     color: var(--primary-light-6);
     order: 1;
@@ -33,7 +33,8 @@
     color: var(--primary-light-9);
 }
 .margin_left {
-    margin-left: 24px;
+    margin-left: 36px;
+    padding: 0 0 10px;
 }
 
 .ico_div {
@@ -97,22 +98,30 @@
 }
 
 @media (width < 600px) {
+
     .footer_wrapper {
     margin: 20px 0;
     margin-right: 0;
     order: 1;
     display: flex;
+    width: 324px;
     }
-
 
     .column_footer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: auto;
+        margin: 0;
     }
     .margin_left {
         margin-left: 0;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding: 12px 0;
     }
 }
 
