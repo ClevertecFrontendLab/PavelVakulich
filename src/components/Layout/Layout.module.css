@@ -1,0 +1,15 @@
+.layout{
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    justify-content: flex-start;
+    background: url(../../assets/Main-page_light.png) ;
+}
+
+.site_layout{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+}
