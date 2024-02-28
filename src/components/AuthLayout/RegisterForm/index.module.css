@@ -12,7 +12,13 @@
 .Button {
     margin-bottom: 12px;
 }
+
+.ButtonNetwork {
+    background: var(--white);
+}
+
 .ButtonNetwork svg {
+
     @media (max-width: 640px) {
         display: none;
     }
