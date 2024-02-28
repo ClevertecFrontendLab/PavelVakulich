@@ -30,7 +30,7 @@ export const ChangePasswordForm: FC = () => {
     return (
         <div>
             <Title level={3} className={styles.Title}>
-                Восстановление аккауанта
+                Восстановление аккаунта
             </Title>
             <Form name='change_password' onFinish={onFinish}>
                 <Form.Item
