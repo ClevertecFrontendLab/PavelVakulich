@@ -66,7 +66,8 @@ export const LoginForm: FC = () => {
             </Form.Item>
             <Form.Item className={styles.LoginExtra}>
                 <Form.Item name='remember' valuePropName='checked' noStyle>
-                    <Checkbox data-test-id='login-remember'>
+                    <Checkbox data-test-id='login-remember'
+                    >
                         <Text>Запомнить меня</Text>
                     </Checkbox>
                 </Form.Item>
@@ -86,6 +87,7 @@ export const LoginForm: FC = () => {
                     block
                     data-test-id='login-submit-button'
                     size='large'
+                    className={styles.ButtonColor}
                 >
                     Войти
                 </Button>

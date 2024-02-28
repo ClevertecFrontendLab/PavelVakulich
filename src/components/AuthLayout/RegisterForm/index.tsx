@@ -27,7 +27,7 @@ export const RegisterForm: FC = () => {
             >
                 <Input
                     addonBefore={emailPrefix}
-                    style={{ width: '100%' }}
+                    style={{ width: '100%'}}
                     data-test-id='registration-email'
                 />
             </Form.Item>
@@ -59,6 +59,7 @@ export const RegisterForm: FC = () => {
                     block
                     data-test-id='registration-submit-button'
                     size='large'
+                    className={styles.ButtonColor}
                 >
                     Войти
                 </Button>

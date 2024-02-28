@@ -7,6 +7,15 @@
     }
 }
 
+.ButtonColor {
+    background: var(--blue6);
+    border-color: var(--blue6);
+}
+
+.CheckBoxColor {
+    background-color: var(--blue6);
+}
+
 .LoginButton {
     margin-bottom: 18px;
 

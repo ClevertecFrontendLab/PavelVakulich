@@ -13,8 +13,9 @@
     margin-bottom: 12px;
 }
 
-.ButtonNetwork {
-    background: var(--white);
+.ButtonColor {
+    background: var(--blue6);
+    border-color: var(--blue6);
 }
 
 .ButtonNetwork svg {

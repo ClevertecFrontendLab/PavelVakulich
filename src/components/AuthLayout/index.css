@@ -7,6 +7,7 @@
 .character {
     font-family: 'Inter Regular';
     font-size: 14px;
+
 }
 
 .ant-input-affix-wrapper {
@@ -41,7 +42,9 @@
 .ant-tabs-tab {
     width: 50%;
     justify-content: center;
+
 }
+
 
 .ant-form-item-explain {
     font-size: 12px;
@@ -70,6 +73,7 @@
 .character--inactive {
     background-color: transparent;
     color: transparent;
+
 }
 
 .character--filled {
@@ -80,4 +84,14 @@
 
 .character--error {
     border: 1px solid red;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: var(--blue6);
+    border-color: var(--blue6);
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: var(--blue6);
+
 }
