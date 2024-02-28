@@ -1,0 +1,97 @@
+.ant-form-item input {
+    height: 40px;
+    max-height: 40px;
+}
+
+.ant-form-item input::placeholder,
+.character {
+    font-family: 'Inter Regular';
+    font-size: 14px;
+
+}
+
+.ant-input-affix-wrapper {
+    padding: 0 11px;
+}
+
+.ant-form-item {
+    margin-bottom: 32px;
+}
+
+.ant-input-group-addon {
+    width: 70px;
+}
+
+.ant-form-item-control-input-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ant-btn {
+    font-family: 'Inter Regular';
+    font-size: 16px;
+}
+
+.ant-tabs-nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ant-tabs-tab {
+    width: 50%;
+    justify-content: center;
+
+}
+
+
+.ant-form-item-explain {
+    font-size: 12px;
+}
+
+.ant-result {
+    padding: 0;
+}
+.ant-result-icon {
+    margin-bottom: 28px;
+    @media (max-width: 480px) {
+        margin-bottom: 28px;
+    }
+}
+.container {
+    margin-bottom: 15px;
+    gap: 12px;
+}
+.character {
+    color: transparent;
+    border: 1px solid gray;
+    width: 40px;
+    height: 40px;
+}
+
+.character--inactive {
+    background-color: transparent;
+    color: transparent;
+
+}
+
+.character--filled {
+    background-color: transparent;
+    color: black;
+    line-height: 40px;
+}
+
+.character--error {
+    border: 1px solid red;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: var(--blue6);
+    border-color: var(--blue6);
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: var(--blue6);
+
+}
