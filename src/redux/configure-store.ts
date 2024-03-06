@@ -1,27 +1,37 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { createBrowserHistory } from 'history';
 import { combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { createReduxHistoryContext } from 'redux-first-history';
-
-import { authorizeApi } from './services/authorize';
-import authReducer from './slices/authSlice';
+import { createBrowserHistory } from 'history';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { authorizeApi } from './API/authorizeApi';
+import authReducer from '@redux/authSlice';
+import loaderReducer from '@redux/loaderSlice';
+import siderReducer from '@redux/siderSlice';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
     history: createBrowserHistory(),
-    savePreviousLocations: 10
 });
 
 export const store = configureStore({
     reducer: combineReducers({
-        router: routerReducer,
         [authorizeApi.reducerPath]: authorizeApi.reducer,
-        auth: authReducer
+        router: routerReducer,
+        auth: authReducer,
+        loader: loaderReducer,
+        sider: siderReducer,
     }),
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(routerMiddleware).concat(authorizeApi.middleware),
+        getDefaultMiddleware().concat(authorizeApi.middleware, routerMiddleware),
 });
 
 export const history = createReduxHistory(store);
 
+// refetchOnFocus/refetchOnReconnect
+setupListeners(store.dispatch);
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch: () => typeof store.dispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
