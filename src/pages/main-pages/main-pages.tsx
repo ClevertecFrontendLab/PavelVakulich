@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button, Card, Col, Layout, Row } from 'antd';
 import { Header } from '@components/header';
-import styles from './mainPage.module.css';
+import styles from './main-pages.module.css';
 import { CalendarTwoTone, HeartFilled, IdcardOutlined } from '@ant-design/icons';
 import { Footer } from './footer';
 
