@@ -38,6 +38,6 @@
             }
         ]
     },
-    "include": ["src"],
+    "include": ["src", "public/icons/exit-icon.tsx"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
