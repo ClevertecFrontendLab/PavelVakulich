@@ -6,7 +6,7 @@ import { RegisterErrorUserExist } from '@pages/auth-page/result-pages/RegisterEr
 import { RegisterError } from '@pages/auth-page/result-pages/RegisterError';
 import { BasicLayoutResult } from '@pages/auth-page/result-pages/BasicLayoutResult';
 import { RegisterSuccess } from '@pages/auth-page/result-pages/RegisterSuccess';
-import { MainPage } from '@pages/mainPage';
+import { MainPage } from '@pages/MainPage';
 import { ForgotPasswordErrorNoEmail } from '@pages/auth-page/result-pages/ForgotPasswordErrorNoEmail';
 import { ForgotPasswordError } from '@pages/auth-page/result-pages/ForgotPasswordError';
 import { ChangePasswordSuccess } from '@pages/auth-page/result-pages/ChangePasswordSuccess';
