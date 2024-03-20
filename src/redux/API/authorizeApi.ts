@@ -9,8 +9,11 @@ import {
     User,
     ChangePasswordRequest,
     Feedback,
+    TrainingList,
+    TrainingResponse,
+    Training,
 } from './types';
-import { RootState } from '@redux/configure-store';
+import { RootState } from '@redux/storeSetting';
 // import axios from "axios";
 import { BASE_URL } from '@constants/constants';
 
@@ -95,9 +98,45 @@ export const authorizeApi = createApi({
             }),
             invalidatesTags: [{ type: 'Feedback', id: 'LIST' }],
         }),
+        getTraining: builder.query<TrainingResponse[], { name: string } | void>({
+            query: (arg) => ({
+                url: '/training',
+                method: 'GET',
+                params: arg ? { name: arg.name } : undefined,
+            }),
+            providesTags: [{ type: 'Training', id: 'LIST' }],
+        }),
+        addTraining: builder.mutation<TrainingResponse, Training>({
+            query: (training) => ({
+                url: '/training',
+                method: 'POST',
+                body: {
+                    name: training.name,
+                    date: training.date,
+                    exercises: training.exercises,
+                },
+            }),
+            invalidatesTags: [{ type: 'Training', id: 'LIST' }],
+        }),
+        updateTraining: builder.mutation<TrainingResponse, TrainingResponse>({
+            query: (training) => ({
+                url: `/training/${training._id}`,
+                method: 'PUT',
+                body: {
+                    ...training,
+                    exercises: training.exercises,
+                },
+            }),
+            invalidatesTags: [{ type: 'Training', id: 'LIST' }],
+        }),
+        getTrainingList: builder.query<TrainingList, void>({
+            query: () => ({
+                url: '/catalogs/training-list',
+                method: 'GET',
+            }),
+        }),
     }),
 });
-
 export const {
     useGetHealthmonitorQuery,
     useLoginMutation,
@@ -108,4 +147,9 @@ export const {
     useChangePasswordMutation,
     useGetFeedbackQuery,
     useCreateFeedbackMutation,
+    useGetTrainingQuery,
+    useLazyGetTrainingQuery,
+    useGetTrainingListQuery,
+    useAddTrainingMutation,
+    useUpdateTrainingMutation,
 } = authorizeApi;

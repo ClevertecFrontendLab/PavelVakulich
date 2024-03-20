@@ -2,7 +2,7 @@ import { Button, Form, Input } from 'antd';
 import styles from './registration-page.module.css';
 import { GooglePlusOutlined } from '@ant-design/icons';
 import { useRegisterMutation } from '@redux/API/authorizeApi';
-import { useAppDispatch } from '@redux/configure-store';
+import { useAppDispatch } from '@redux/storeSetting';
 import { push } from 'redux-first-history';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query/react';
 import { useLocation } from 'react-router-dom';

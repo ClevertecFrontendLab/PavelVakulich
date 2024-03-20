@@ -1,5 +1,5 @@
 import { WrapperWide } from '@pages/auth-page/_components/result/wrapper-wide';
-import { useAppDispatch } from '@redux/configure-store';
+import { useAppDispatch } from '@redux/storeSetting';
 import { Button, Result } from 'antd';
 import { push } from 'redux-first-history';
 import { PATHS } from '@constants/paths';

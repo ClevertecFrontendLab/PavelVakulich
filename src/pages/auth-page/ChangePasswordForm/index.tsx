@@ -5,7 +5,7 @@ import { Wrapper } from '../_components/result/wrapper';
 import { Rule } from 'antd/lib/form';
 import { useChangePasswordMutation } from '@redux/API/authorizeApi';
 import { useLoaderLoading } from '@hooks/useLoader';
-import { useAppDispatch } from '@redux/configure-store';
+import { useAppDispatch } from '@redux/storeSetting';
 import { push, replace } from 'redux-first-history';
 import { useLocation } from 'react-router-dom';
 import { useCallback, useEffect } from 'react';

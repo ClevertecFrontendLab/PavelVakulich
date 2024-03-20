@@ -1,5 +1,5 @@
 import { PATHS } from '@constants/paths';
-import { useAppSelector } from '@redux/configure-store';
+import { useAppSelector } from '@redux/storeSetting';
 import { Navigate, Outlet } from 'react-router-dom';
 
 export const UnauthRoutes = () => {

@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { useConfirmEmailMutation } from '@redux/API/authorizeApi';
 import { useLoaderLoading } from '@hooks/useLoader';
 import { useState } from 'react';
-import { useAppDispatch } from '@redux/configure-store';
+import { useAppDispatch } from '@redux/storeSetting';
 import { replace } from 'redux-first-history';
 import { PATHS } from '@constants/paths';
 

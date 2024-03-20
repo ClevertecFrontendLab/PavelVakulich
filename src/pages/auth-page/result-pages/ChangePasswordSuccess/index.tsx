@@ -1,5 +1,5 @@
 import { Wrapper } from '@pages/auth-page/_components/result/wrapper';
-import { useAppDispatch } from '@redux/configure-store';
+import { useAppDispatch } from '@redux/storeSetting';
 import { Button, Result } from 'antd';
 import { replace } from 'redux-first-history';
 

@@ -1,6 +1,6 @@
 import { PATHS } from '@constants/paths';
 import { setCredentials } from '@redux/authSlice';
-import { useAppDispatch, useAppSelector } from '@redux/configure-store';
+import { useAppDispatch, useAppSelector } from '@redux/storeSetting';
 import { useEffect } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 

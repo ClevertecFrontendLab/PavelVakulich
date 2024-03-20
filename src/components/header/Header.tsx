@@ -1,14 +1,13 @@
 import { Breadcrumb, Button, Layout } from 'antd';
 import styles from './Header.module.css';
 import Title from 'antd/lib/typography/Title';
-import { SettingOutlined } from '@ant-design/icons';
-import { useMediaQuery } from 'react-responsive';
+// import { SettingOutlined } from '@ant-design/icons';
+// import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import { PATHS } from '@constants/paths';
+import { SettingsButton } from '@components/UI/button';
 
 export const Header = () => {
-    const matchesMobile = useMediaQuery({ query: `(max-width: 480px)` });
-
     return (
         <Layout.Header className={styles.header}>
             <Breadcrumb className={styles.breadcrumbs}>
@@ -22,14 +21,16 @@ export const Header = () => {
                     <br /> которое поможет тебе добиться своей мечты!
                 </Title>
 
-                <Button
+                <SettingsButton />
+
+                {/* <Button
                     icon={<SettingOutlined />}
                     type={matchesMobile ? 'default' : 'text'}
                     shape={matchesMobile ? 'circle' : 'default'}
                     className={styles.settings}
                 >
                     {!matchesMobile && 'Настройки'}
-                </Button>
+                </Button> */}
             </div>
         </Layout.Header>
     );

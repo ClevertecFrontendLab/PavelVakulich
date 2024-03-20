@@ -3,7 +3,7 @@ import styles from './loader.module.css';
 import Lottie from 'lottie-react';
 import loaderAnimation from './loader.json';
 import { useSelector } from 'react-redux';
-import { RootState } from '@redux/configure-store';
+import { RootState } from '@redux/storeSetting';
 
 export const Loader = () => {
     const isLoading = useSelector((state: RootState) => state.loader.isLoading);
