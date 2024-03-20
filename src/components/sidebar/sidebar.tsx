@@ -13,7 +13,7 @@ import {
     TrophyFilled,
 } from '@ant-design/icons';
 import { ExitIcon } from '@public/icons/exit-icon.tsx';
-import { useAppDispatch } from '@redux/configure-store';
+import { useAppDispatch } from '@redux/storeSetting';
 import { logout } from '@redux/authSlice';
 
 import { setIsCollapsed } from '@redux/siderSlice';

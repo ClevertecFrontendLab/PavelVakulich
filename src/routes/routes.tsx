@@ -6,7 +6,7 @@ import { RegisterErrorUserExist } from '@pages/auth-page/result-pages/RegisterEr
 import { RegisterError } from '@pages/auth-page/result-pages/RegisterError';
 import { BasicLayoutResult } from '@pages/auth-page/result-pages/BasicLayoutResult';
 import { RegisterSuccess } from '@pages/auth-page/result-pages/RegisterSuccess';
-import { MainPage } from '@pages/main-pages';
+import { MainPage } from '@pages/MainPage';
 import { ForgotPasswordErrorNoEmail } from '@pages/auth-page/result-pages/ForgotPasswordErrorNoEmail';
 import { ForgotPasswordError } from '@pages/auth-page/result-pages/ForgotPasswordError';
 import { ChangePasswordSuccess } from '@pages/auth-page/result-pages/ChangePasswordSuccess';
@@ -19,6 +19,7 @@ import { ConfirmEmailPage } from '@pages/auth-page/confirm-email';
 import { ChangePasswordPage } from '@pages/auth-page/ChangePasswordForm';
 import { FeedbacksPage } from '@pages/feedbacks-page';
 import { LayoutMain } from '@pages/layout';
+import { CalendarPage } from '@pages/calendar-page';
 import { PATHS } from '@constants/paths';
 
 export const NavigationItems = () => {
@@ -29,6 +30,7 @@ export const NavigationItems = () => {
                     <Route path={PATHS.DEFAULT} element={<Navigate to={PATHS.MAIN} replace />} />
                     <Route path={PATHS.MAIN} element={<MainPage />} />
                     <Route path={PATHS.FEEDBACKS} element={<FeedbacksPage />} />
+                    <Route path={PATHS.CALENDAR} element={<CalendarPage />} />
                 </Route>
             </Route>
             <Route element={<UnauthRoutes />}>

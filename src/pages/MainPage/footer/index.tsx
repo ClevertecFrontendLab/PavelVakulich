@@ -2,7 +2,7 @@ import { Button, Card, Layout, Row, Typography } from 'antd';
 import { AndroidFilled, AppleFilled } from '@ant-design/icons';
 import styles from './footer.module.css';
 import { useMediaQuery } from 'react-responsive';
-import { useAppDispatch } from '@redux/configure-store';
+import { useAppDispatch } from '@redux/storeSetting';
 import { push } from 'redux-first-history';
 import { PATHS } from '@constants/paths';
 

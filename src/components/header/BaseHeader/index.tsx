@@ -1,6 +1,7 @@
 import { Breadcrumb, Layout } from 'antd';
 import styles from './BaseHeader.module.css';
 import { Link } from 'react-router-dom';
+import { SettingsButton } from '@components/UI/button';
 
 type BaseHeaderProps = {
     breadCrumbs: {
@@ -18,5 +19,8 @@ export const BaseHeader = ({ breadCrumbs }: BaseHeaderProps) => (
                 </Breadcrumb.Item>
             ))}
         </Breadcrumb>
+        <div className={styles.horizontal_layout}>
+            <SettingsButton />
+        </div>
     </Layout.Header>
 );

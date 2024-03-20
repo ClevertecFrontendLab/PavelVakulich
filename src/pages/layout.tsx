@@ -1,4 +1,4 @@
-import styles from './main-pages/main-pages.module.css';
+import styles from './MainPage/mainPage.module.css';
 import { Sidebar } from '@components/sidebar';
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';

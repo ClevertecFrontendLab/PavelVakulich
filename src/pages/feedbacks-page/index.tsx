@@ -10,12 +10,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { EmptyFeedbacks } from './empty-feedbacks';
 import { Feedbacks } from './feedbacks';
 import { ErrorModal } from '@components/modals/error-modal';
-import { useAppDispatch } from '@redux/configure-store';
+import { useAppDispatch } from '@redux/storeSetting';
 import { goBack, replace } from 'redux-first-history';
 import { logout } from '@redux/authSlice';
 import { FeedbackModal } from './feedback-modal';
 import { PATHS } from '@constants/paths';
 import { STATUS_CODE } from '@constants/constants';
+import { PlainHeader } from '@components/UI/simpleHeader';
 
 type ErrorGetFeedbacks = {
     status: number;
@@ -77,6 +78,12 @@ export const FeedbacksPage = () => {
 
     return (
         <Layout className={styles.main_container}>
+            <PlainHeader
+                breadCrumbs={[
+                    { title: 'Главная', link: PATHS.MAIN },
+                    { title: 'Отзывы пользователей', link: PATHS.FEEDBACKS },
+                ]}
+            />
             <BaseHeader
                 breadCrumbs={[
                     { title: 'Главная', link: PATHS.MAIN },
