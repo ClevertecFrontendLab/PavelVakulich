@@ -1,2 +1,1 @@
-export { AuthPage } from './AuthPage';
-export { MainPage } from './MainPage';
+export { MainPage } from './mainPage';
