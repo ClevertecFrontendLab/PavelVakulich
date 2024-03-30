@@ -3,6 +3,7 @@ import { push } from 'redux-first-history';
 import { SettingOutlined } from '@ant-design/icons';
 import { PATHS } from '@constants/paths';
 import { useAppDispatch } from '@redux/storeSetting';
+
 import { Button } from 'antd';
 
 export const SettingsButton = () => {
