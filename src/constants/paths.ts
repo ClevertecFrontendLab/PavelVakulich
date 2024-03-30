@@ -16,6 +16,10 @@ export enum PATHS {
     CHANGE_PASSWORD_ERROR = '/result/error-change-password',
     CHANGE_PASSWORD_SUCCESS = '/result/success-change-password',
     CALENDAR = '/calendar',
+    TRAININGS = '/trainings',
+    ACHIEVEMENTS = '/achievements',
+    PROFILE = '/profile',
+    SETTINGS = '/settings',
 }
 
 export default PATHS;

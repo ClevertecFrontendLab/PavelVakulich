@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Button, Card, Col, Layout, Row } from 'antd';
 import { Header } from '@components/header';
 import styles from './mainPage.module.css';
@@ -7,15 +6,27 @@ import { CalendarTwoTone, HeartFilled, IdcardOutlined } from '@ant-design/icons'
 import { Footer } from './footer';
 import { useGetLazyTraining } from '@hooks/useGetTraining';
 import { ErrorModal } from '@components/modals/error-modal';
+import { PATHS } from '@constants/paths';
+import { useAppDispatch } from '@redux/storeSetting';
+import { push } from 'redux-first-history';
 
 const { Content } = Layout;
 
 export const MainPage: React.FC = () => {
+    const dispatch = useAppDispatch();
     const { onGetTraining, closeErrorModal, isErrorModalOpen } = useGetLazyTraining();
 
     return (
         <Layout className={styles.main_container}>
-            <Header />
+            <Header
+                title={
+                    <React.Fragment>
+                        Приветствуем тебя в&nbsp;CleverFit&nbsp;— приложении,
+                        <br /> которое поможет тебе добиться своей мечты!
+                    </React.Fragment>
+                }
+                breadCrumbs={[{ title: 'Главная', link: PATHS.MAIN }]}
+            />
             <Content className={styles.main_content}>
                 <Layout className={styles.grid_container}>
                     <Row gutter={[16, 24]}>
@@ -48,7 +59,7 @@ export const MainPage: React.FC = () => {
                                     </Card>
                                 </Col>
                                 <Col span={24}>
-                                    <Row gutter={[16, 8]} justify={'space-between'}>
+                                    <Row gutter={[16, 8]} justify='space-between'>
                                         <Col xs={24} sm={8} span={8}>
                                             <Card
                                                 title='Расписать тренировки'
@@ -65,7 +76,7 @@ export const MainPage: React.FC = () => {
                                                     icon={
                                                         <HeartFilled style={{ fontSize: '12px' }} />
                                                     }
-                                                    block
+                                                    block={true}
                                                     className={styles.card_button}
                                                 >
                                                     Тренировки
@@ -91,13 +102,14 @@ export const MainPage: React.FC = () => {
                                                             style={{ fontSize: '12px' }}
                                                         />
                                                     }
-                                                    block
+                                                    block={true}
                                                     className={styles.card_button}
                                                     onClick={() => onGetTraining()}
                                                     data-test-id='menu-button-calendar'
                                                 >
                                                     Календарь
                                                 </Button>
+
                                                 <ErrorModal
                                                     isModalOpen={isErrorModalOpen}
                                                     onClose={closeErrorModal}
@@ -125,8 +137,10 @@ export const MainPage: React.FC = () => {
                                                             }}
                                                         />
                                                     }
-                                                    block
+                                                    block={true}
                                                     className={styles.card_button}
+                                                    onClick={() => dispatch(push(PATHS.PROFILE))}
+                                                    data-test-id='menu-button-profile'
                                                 >
                                                     Профиль
                                                 </Button>

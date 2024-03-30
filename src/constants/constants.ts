@@ -1,6 +1,6 @@
 import ru_RU from 'antd/es/calendar/locale/ru_RU';
 
-export const BASE_URL = 'https://marathon-api.clevertec.ru';
+export const BASE_URL = 'https://marathon-api.clevertec.ru/';
 export const RU_CALENDAR_LOCALE = {
     ...ru_RU,
 
@@ -38,3 +38,4 @@ export enum STATUS_CODE {
 }
 
 export default STATUS_CODE;
+export const BASE_IMAGE_URL = 'https://training-api.clevertec.ru/';

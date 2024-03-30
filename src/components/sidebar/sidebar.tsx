@@ -2,7 +2,11 @@ import { Logo } from '@components/UI/logo';
 import { Button, Layout, Menu } from 'antd';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-
+import { NavLink, useLocation } from 'react-router-dom';
+import { ErrorModal } from '@components/modals/error-modal';
+import { PATHS } from '@constants/paths';
+import { useGetLazyTraining } from '@hooks/useGetTraining';
+import { useLogout } from '@hooks/use-logout';
 import styles from './sidebar.module.css';
 import {
     CalendarTwoTone,
@@ -14,7 +18,6 @@ import {
 } from '@ant-design/icons';
 import { ExitIcon } from '@public/icons/exit-icon.tsx';
 import { useAppDispatch } from '@redux/storeSetting';
-import { logout } from '@redux/authSlice';
 
 import { setIsCollapsed } from '@redux/siderSlice';
 
@@ -22,8 +25,12 @@ const { Sider } = Layout;
 
 export const Sidebar = () => {
     const dispatch = useAppDispatch();
-    const matches = useMediaQuery({ query: `(max-width: 768px)` });
+    const location = useLocation();
+    const matches = useMediaQuery({ query: '(max-width: 768px)' });
     const [collapsed, setCollapsed] = useState(matches);
+
+    const { onGetTraining, closeErrorModal, isErrorModalOpen } = useGetLazyTraining();
+    const logout = useLogout();
 
     useEffect(() => {
         if (matches) {
@@ -34,22 +41,23 @@ export const Sidebar = () => {
 
     const menuItems = [
         {
-            key: '1',
+            key: PATHS.CALENDAR,
             icon: <CalendarTwoTone style={{ fontSize: '16px' }} />,
             label: 'Календарь',
+            onClick: () => onGetTraining(),
         },
         {
-            key: '2',
+            key: PATHS.TRAININGS,
             icon: <HeartFilled style={{ fontSize: '16px' }} />,
             label: 'Тренировки',
         },
         {
-            key: '3',
+            key: PATHS.ACHIEVEMENTS,
             icon: <TrophyFilled style={{ fontSize: '16px' }} />,
             label: 'Достижения',
         },
         {
-            key: '4',
+            key: PATHS.PROFILE,
             icon: (
                 <IdcardOutlined
                     style={{
@@ -58,7 +66,7 @@ export const Sidebar = () => {
                     }}
                 />
             ),
-            label: 'Профиль',
+            label: <NavLink to={PATHS.PROFILE}>Профиль</NavLink>,
         },
     ];
 
@@ -68,13 +76,13 @@ export const Sidebar = () => {
     };
 
     const onExit = () => {
-        dispatch(logout());
+        logout();
     };
 
     return (
         <Sider
             width={matches ? 106 : 208}
-            collapsible
+            collapsible={true}
             trigger={null}
             collapsed={collapsed}
             collapsedWidth={matches ? 1 : 64}
@@ -85,6 +93,7 @@ export const Sidebar = () => {
             </div>
             {(!matches || !collapsed) && (
                 <Menu
+                    selectedKeys={[location.pathname]}
                     defaultSelectedKeys={undefined}
                     items={menuItems}
                     mode='inline'
@@ -115,6 +124,8 @@ export const Sidebar = () => {
                 {!matches && <ExitIcon />}
                 {!collapsed && 'Выход'}
             </Button>
+
+            <ErrorModal isModalOpen={isErrorModalOpen} onClose={closeErrorModal} />
         </Sider>
     );
 };

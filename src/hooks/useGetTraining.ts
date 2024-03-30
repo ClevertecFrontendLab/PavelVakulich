@@ -1,6 +1,6 @@
 import { useLazyGetTrainingQuery } from '@redux/API/authorizeApi';
 import { useLoaderLoading } from './useLoader';
-import PATHS from '@constants/paths';
+import { PATHS } from '@constants/paths';
 import { push } from 'redux-first-history';
 import { useAppDispatch } from '@redux/storeSetting';
 import { useState } from 'react';
