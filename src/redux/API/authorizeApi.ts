@@ -1,37 +1,44 @@
+/* eslint-disable no-underscore-dangle */
+import { RootState } from '@redux/storeSetting';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { BASE_URL } from '@constants/constants';
+
 import {
+    AddTariffRequest,
+    ChangePasswordRequest,
     CheckEmailResponse,
     ConfrimEmailRequest,
     ConfrimEmailResponse,
+    Feedback,
     LoginRequest,
     LoginResponse,
     RegistrationRequest,
-    User,
-    ChangePasswordRequest,
-    Feedback,
+    TariffList,
+    Training,
     TrainingList,
     TrainingResponse,
-    Training,
+    UpdateUserRequest,
+    User,
 } from './types';
-import { RootState } from '@redux/storeSetting';
 // import axios from "axios";
-import { BASE_URL } from '@constants/constants';
 
 export const authorizeApi = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
         baseUrl: BASE_URL,
         prepareHeaders: (headers, { getState }) => {
-            const accessToken = (getState() as RootState).auth.accessToken;
+            const { accessToken } = (getState() as RootState).auth;
+
             if (accessToken) {
                 headers.set('authorization', `Bearer ${accessToken}`);
             }
+
             return headers;
         },
         credentials: 'include',
         mode: 'cors',
     }),
-    tagTypes: ['Feedback'],
+    tagTypes: ['Feedback', 'Training', 'User'],
     endpoints: (builder) => ({
         login: builder.mutation<LoginResponse, LoginRequest>({
             query: (credentials) => ({
@@ -70,7 +77,20 @@ export const authorizeApi = createApi({
             }),
         }),
         getMe: builder.query<User, void>({
-            query: () => 'user/me',
+            query: () => ({
+                url: 'user/me',
+                method: 'GET',
+                credentials: 'include',
+            }),
+            providesTags: [{ type: 'User', id: 'LIST' }],
+        }),
+        updateUser: builder.mutation<User, UpdateUserRequest>({
+            query: (data) => ({
+                url: 'user',
+                method: 'PUT',
+                body: data,
+            }),
+            invalidatesTags: [{ type: 'User', id: 'LIST' }],
         }),
         getHealthmonitor: builder.query<void, void>({
             query: () => ({
@@ -135,12 +155,27 @@ export const authorizeApi = createApi({
                 method: 'GET',
             }),
         }),
+        getTariffList: builder.query<TariffList, void>({
+            query: () => ({
+                url: '/catalogs/tariff-list',
+                method: 'GET',
+            }),
+        }),
+        addTariff: builder.mutation<void, AddTariffRequest>({
+            query: (tariff) => ({
+                url: '/tariff',
+                method: 'POST',
+                body: tariff,
+            }),
+        }),
     }),
 });
+
 export const {
     useGetHealthmonitorQuery,
     useLoginMutation,
     useGetMeQuery,
+    useUpdateUserMutation,
     useRegisterMutation,
     useCheckEmailMutation,
     useConfirmEmailMutation,
@@ -152,4 +187,6 @@ export const {
     useGetTrainingListQuery,
     useAddTrainingMutation,
     useUpdateTrainingMutation,
+    useGetTariffListQuery,
+    useAddTariffMutation,
 } = authorizeApi;

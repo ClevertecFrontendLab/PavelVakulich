@@ -1,0 +1,46 @@
+.tariff_card {
+    border: 2px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+}
+.tariff_card :global .ant-card-head-title {
+    font-size: 16px;
+    line-height: 130%;
+}
+.tariff_card :global .ant-card-cover img {
+    border-radius: 0;
+}
+.tariff_card :global .ant-card-body {
+    height: 95px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tariff_card .button_more {
+    padding: 0;
+    line-height: 130%;
+}
+.tariff_card .body_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tariff_card .active_span {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+    color: var(--primary-light-10);
+    display: flex;
+    gap: 8px;
+}
+.tariff_card .active_span:has(.active_date) {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+@media (max-width: 480px) {
+    .tariff_card :global .ant-card-body {
+        height: 65px;
+    }
+}

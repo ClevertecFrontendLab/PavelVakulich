@@ -7,6 +7,7 @@ import { authorizeApi } from './API/authorizeApi';
 import authReducer from '@redux/authSlice';
 import loaderReducer from '@redux/loaderSlice';
 import siderReducer from '@redux/siderSlice';
+import userReducer from '@redux/user/user-slice';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
@@ -20,6 +21,7 @@ export const store = configureStore({
         auth: authReducer,
         loader: loaderReducer,
         sider: siderReducer,
+        user: userReducer,
     }),
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(authorizeApi.middleware, routerMiddleware),
@@ -27,7 +29,6 @@ export const store = configureStore({
 
 export const history = createReduxHistory(store);
 
-// refetchOnFocus/refetchOnReconnect
 setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;

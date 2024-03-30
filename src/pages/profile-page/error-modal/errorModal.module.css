@@ -1,0 +1,18 @@
+.error_modal_wrapper {
+    z-index: 12;
+    padding: var(--padding-modal-wrapper);
+}
+.error_modal_wrapper .error_modal {
+    max-width: 416px;
+}
+.error_modal_wrapper .error_modal :global .ant-modal-body {
+    padding: 32px 32px 24px;
+}
+.error_modal_wrapper .error_modal :global .ant-modal-body .ant-modal-confirm-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+}
+.error_modal_wrapper .error_modal :global .ant-modal-body .ant-modal-confirm-content {
+    line-height: 130%;
+}

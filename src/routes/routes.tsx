@@ -21,20 +21,29 @@ import { FeedbacksPage } from '@pages/feedbacks-page';
 import { LayoutMain } from '@pages/layout';
 import { CalendarPage } from '@pages/calendar-page';
 import { PATHS } from '@constants/paths';
+import { NotFoundPage } from '@pages/not-founde-page';
+import { ProfilePage } from '@pages/profile-page';
+import { SettingsPage } from '@pages/settings-page';
 
 export const NavigationItems = () => {
     return (
         <Routes>
             <Route element={<AuthRoutes />}>
                 <Route element={<LayoutMain />}>
-                    <Route path={PATHS.DEFAULT} element={<Navigate to={PATHS.MAIN} replace />} />
+                    <Route
+                        path={PATHS.DEFAULT}
+                        element={<Navigate to={PATHS.MAIN} replace={true} />}
+                    />
                     <Route path={PATHS.MAIN} element={<MainPage />} />
                     <Route path={PATHS.FEEDBACKS} element={<FeedbacksPage />} />
                     <Route path={PATHS.CALENDAR} element={<CalendarPage />} />
+                    <Route path={PATHS.PROFILE} element={<ProfilePage />} />
+                    <Route path={PATHS.SETTINGS} element={<SettingsPage />} />
+                    <Route path='*' element={<NotFoundPage />} />
                 </Route>
             </Route>
             <Route element={<UnauthRoutes />}>
-                <Route path={PATHS.DEFAULT} element={<Navigate to={PATHS.AUTH} replace />} />
+                <Route path={PATHS.DEFAULT} element={<Navigate to={PATHS.AUTH} replace={true} />} />
                 <Route element={<Layout />}>
                     <Route path={PATHS.AUTH} element={<LayoutAuth />}>
                         <Route index element={<AuthPage />} />
@@ -71,6 +80,7 @@ export const NavigationItems = () => {
                         />
                     </Route>
                 </Route>
+                <Route path='*' element={<Navigate to={PATHS.AUTH} replace={true} />} />
             </Route>
         </Routes>
     );

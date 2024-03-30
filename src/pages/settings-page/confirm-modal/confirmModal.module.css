@@ -1,0 +1,28 @@
+.modal_wrap {
+    padding: var(--padding-mobile-wrapper);
+}
+.modal {
+    max-width: 540px;
+}
+.modal :global .ant-modal-body {
+    padding: 64px 32px 56px;
+}
+.modal .result {
+    width: 100%;
+    padding: var(--padding-clear);
+}
+.modal .result :global .ant-result-title {
+    font-weight: 500;
+    line-height: 130%;
+}
+.modal .result :global .ant-result-subtitle {
+    line-height: 130%;
+}
+.modal .result :global .ant-result-extra {
+    color: var(--character-light-secondary-45);
+}
+@media (max-width: 480px) {
+    .modal :global .ant-modal-body {
+        padding: 32px 16px;
+    }
+}

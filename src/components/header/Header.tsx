@@ -5,7 +5,7 @@ import Title from 'antd/lib/typography/Title';
 // import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import { PATHS } from '@constants/paths';
-import { SettingsButton } from '@components/UI/button';
+import { SettingsButton } from '@components/buttons/settings-button';
 
 export const Header = () => {
     return (
@@ -22,15 +22,6 @@ export const Header = () => {
                 </Title>
 
                 <SettingsButton />
-
-                {/* <Button
-                    icon={<SettingOutlined />}
-                    type={matchesMobile ? 'default' : 'text'}
-                    shape={matchesMobile ? 'circle' : 'default'}
-                    className={styles.settings}
-                >
-                    {!matchesMobile && 'Настройки'}
-                </Button> */}
             </div>
         </Layout.Header>
     );

@@ -1,13 +1,13 @@
 import { Breadcrumb, Layout } from 'antd';
 import styles from './BaseHeader.module.css';
 import { Link } from 'react-router-dom';
-import { SettingsButton } from '@components/UI/button';
+import { SettingsButton } from '@components/buttons/settings-button';
 
 type BaseHeaderProps = {
-    breadCrumbs: {
+    breadCrumbs: Array<{
         title: string;
         link: string;
-    }[];
+    }>;
 };
 
 export const BaseHeader = ({ breadCrumbs }: BaseHeaderProps) => (
